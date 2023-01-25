@@ -46,9 +46,3 @@ int _printf(const char *format, ...)
 
 	return (chars_printed);
 }
-
-int main()
-{
-	_printf("This is conc");
-	return (0);
-}
