@@ -31,6 +31,7 @@ int _printf(const char *format, ...)
 			{
 				print_func = get_print_function(*format);
 				chars_printed += print_func(args);
+				--chars_printed;
 			}
 
 			format++;
@@ -43,6 +44,11 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 
-	return (0);
+	return (chars_printed);
 }
 
+int main()
+{
+	_printf("This is conc");
+	return (0);
+}
