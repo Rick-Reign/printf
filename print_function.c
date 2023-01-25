@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+  * get_print_function - gets corect print function
+  * @format_specifier: character representing format to be applied
+  * Return: pointer to function
+  */
 
 int (*get_print_function(char format_specifier))(va_list)
 {
@@ -15,7 +19,7 @@ int (*get_print_function(char format_specifier))(va_list)
 	{
 		if (function_arr[x].ch == format_specifier)
 		{
-			return ( function_arr[x].func);
+			return (function_arr[x].func);
 		}
 	}
 

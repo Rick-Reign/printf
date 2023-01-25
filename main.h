@@ -3,12 +3,17 @@
 
 #include <stdarg.h>
 #include <stddef.h>
+/**
+  * struct print_functions - correct format specifier links to function
+  * @ch: format specifier
+  * @func: pointer to function
+  */
 
 typedef struct print_functions
 {
 	char ch;
 	int (*func)(va_list args);
-}print_functions;
+} print_functions;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
