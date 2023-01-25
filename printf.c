@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int (*print_func)(va_list);
+	int chars_printed = 0;
 
 	va_start(args, format);
 
@@ -29,7 +30,7 @@ int _printf(const char *format, ...)
 			} else
 			{
 				print_func = get_print_function(*format);
-				print_func(args);
+				chars_printed += print_func(args);
 			}
 
 			format++;
@@ -37,6 +38,7 @@ int _printf(const char *format, ...)
 
 		_putchar(*format);
 		format++;
+		chars_printed++;
 	}
 
 	va_end(args);
