@@ -19,7 +19,10 @@ int _printf(const char *format, ...)
 	{
 		return (0);
 	}
-
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	if (format[0] == '%' && !format[1])
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
@@ -31,18 +34,15 @@ int _printf(const char *format, ...)
 			} else
 			{
 				print_func = get_print_function(*format);
-				print_func(args);
+				chars_printed = print_func(args);
+				--chars_printed;
 			}
 
 			format++;
 		}
-
 		_putchar(*format);
 		format++;
 	}
-
 	va_end(args);
-
-	return (0);
+	return (chars_printed);
 }
-
