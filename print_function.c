@@ -9,10 +9,11 @@ int (*get_print_function(char format_specifier))(va_list)
 {
 	print_functions function_arr[] = {
 		{'s', print_string},
-		{'c', print_char}
+		{'c', print_char},
+		{'i', print_int}
 	};
 
-	int total_specifiers = 2;
+	int total_specifiers = 3;
 	int x;
 
 	for (x = 0; x < total_specifiers; x++)
